@@ -1,84 +1,49 @@
 package com.bridgelabz.addressbook;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
-/**
- *
- * @author pande
- *
- */
 public class AddressBookMain {
-    Scanner sc = new Scanner(System.in);
-    HashMap<String, AddressBook> mapbook = new HashMap<String, AddressBook>();
-    AddressBook addressBook = new AddressBook();
+    public static void main(String[] args) {
+        HashMap<String, AddressBook> map = new HashMap<>();
+        System.out.println("Welcome To Address Book Program ");
+        Scanner sc = new Scanner(System.in);
 
-    public void toAddMultipleAddressBook() {
-        while (true) {
-            System.out.println("Enter 1.Book Name 2.to display 3.exit");
+        boolean exit = true;
+        while(exit){
+            AddressBook add = new AddressBook();
+            System.out.println("Enter the address book name");
+            String addressBookName = sc.next().toLowerCase();
+            if(map.containsKey(addressBookName)){
+                System.out.println("address book already exist");
+            }
+            else {
+                map.put(addressBookName, add);
+            }
+            System.out.println("Enter options:\n1 To add contact\n2 To edit Contact\n3 To delete contact\n4 To add Multiple Contact\n5 Display Contact\n6 To exit");
             int option = sc.nextInt();
             switch (option) {
                 case 1:
-                    System.out.println("Enter the address Book name");
-                    String name = sc.next();
-                    if (mapbook.containsKey(name)) {
-                        System.out.println("This book is already exists");
-
-                    } else {
-                        mapbook.put(name, addressBook);
-                        menuToDisplay();
-
-                    }
+                    map.get(addressBookName).addContact();
                     break;
                 case 2:
-                    System.out.println("Enter book name to search");
-                    String search = sc.next();
-                    mapbook.get(search);
-                    break;
-                case 0:
-                    System.exit(0);
-            }
-        }
-    }
-
-    public static void menuToDisplay() {
-        System.out.println("Welcome to addressBook Problem");
-        AddressBook addressBook = new AddressBook();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("***AddressBook***");
-        while (true) {
-            System.out.println(" \n 1. ADD CONTACT \n 2. DISPLAY CONTACT \n 3. EDIT CONTACT \n 4. DELETE CONTACT \n 5.EXIT");
-            System.out.println("Choose the operationNo");
-            int operationNo = sc.nextInt();
-            switch (operationNo) {
-                case 1:
-                    addressBook.addContact();
-                    break;
-                case 2:
-                    addressBook.displayContact();
+                    map.get(addressBookName).editContact();
                     break;
                 case 3:
-                    addressBook.editContact();
+                    map.get(addressBookName).deleteContact();
                     break;
                 case 4:
-                    addressBook.deleteContact();
+                    map.get(addressBookName).addMultiplePerson();
                     break;
+                case 5:
+                    map.get(addressBookName).displayContacts();
+                    break;
+                case 6:
+                    exit = false;
                 default:
-                    System.out.println("Wrong Operation No");
                     break;
-
             }
         }
-    }
-
-
-    public static void main(String[] args) {
-        System.out.println("Welcome to Address book System");
-        AddressBookMain addressBook = new AddressBookMain();
-        addressBook.toAddMultipleAddressBook();
+        System.out.println(map);
     }
 }
-
-
-
-
-
