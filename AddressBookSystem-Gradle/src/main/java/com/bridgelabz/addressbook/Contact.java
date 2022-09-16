@@ -1,12 +1,22 @@
 package com.bridgelabz.addressbook;
-public class Contact {
 
-    /**
-     * Initially,declaring variables and marked them as private.
-     * For each variables implementing getter and setter method
-     * setter():is to assign values to variables
-     * getter():is to get values from the variables
-     */
+
+public class Contact {
+//    public Contact() {
+//
+//    }
+// parametrised constructor
+//    public Contact(String firstName, String lastName, String address, String city, String state, String zip,
+//                   String phoneNumber, String emailId) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.address = address;
+//        this.city = city;
+//        this.state = state;
+//        this.zip = zip;
+//        this.phoneNumber = phoneNumber;
+//        this.emailId = emailId;
+//    }
 
     private String firstName;
     private String lastName;
@@ -14,33 +24,38 @@ public class Contact {
     private String city;
     private String state;
     private String zip;
-    private String phoneNo;
-    private String email;
-
-
+    private String phoneNumber;
+    private String emailId;
 
 
     public String getFirstName() {
         return firstName;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public String getAddress() {
         return address;
     }
+
     public void setAddress(String address) {
         this.address = address;
     }
+
     public String getCity() {
         return city;
     }
+
     public void setCity(String city) {
         this.city = city;
     }
@@ -48,6 +63,7 @@ public class Contact {
     public String getState() {
         return state;
     }
+
     public void setState(String state) {
         this.state = state;
     }
@@ -55,27 +71,31 @@ public class Contact {
     public String getZip() {
         return zip;
     }
+
     public void setZip(String zip) {
         this.zip = zip;
     }
-    public String getPhoneNo() {
-        return phoneNo;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
-    public String getEmail() {
-        return email;
+
+    public String getEmailId() {
+        return emailId;
     }
-    public void setEmail(String email) {
-        this.email = email;
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
+
     @Override
     public String toString() {
         return "Contact [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city=" + city
-                + ", state=" + state + ", zip=" + zip + ", phoneNo=" + phoneNo + ", email=" + email + "]";
+                + ", state=" + state + ", zip=" + zip + ", phoneNumber=" + phoneNumber + ", emailId=" + emailId + "]";
     }
-
-
 
 }
